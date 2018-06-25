@@ -1,0 +1,37 @@
+// AWT
+import java.awt.*;
+import java.awt.event.*;
+
+// SWING - GUI
+import javax.swing.*;
+
+/* CustomerWindow
+ * 
+ * The Customer Window displays a
+ * single Customer Record
+ * 
+ * (c) Dodgee Software 2018
+ */
+public class CustomerWindow extends JFrame {
+
+	// Done Button
+	JButton doneButton;
+	//	CustomerID
+	long customerID;
+	
+	// Customer Title Text Field
+	JTextField customerTitleTextField;
+	
+	public CustomerWindow() {
+		this.customerID = -1;
+		
+		this.doneButton = new JButton("Done");
+		this.add(this.doneButton);
+		
+		this.customerTitleTextField = new JTextField();
+		this.add(this.customerTitleTextField);
+	}
+	
+	// TODO: Implement me
+	
+}

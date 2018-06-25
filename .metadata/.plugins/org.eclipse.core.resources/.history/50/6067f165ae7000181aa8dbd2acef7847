@@ -1,0 +1,24 @@
+// AWT
+import java.awt.*;
+import java.awt.event.*;
+
+// SWING - GUI
+import javax.swing.*;
+
+public class RemoveCustomerWindow extends JFrame {
+
+	// CustomerID Label
+	private JLabel customerIDLabel;
+	// CustomerID TextField
+	private JTextField customerIDTextField;
+	// Remove Button
+	private JButton removeButton;
+	// Search Button
+	private JButton cancelButton;
+
+	RemoveCustomerWindow() {
+		
+	}
+	// TODO: Implement me
+	
+}

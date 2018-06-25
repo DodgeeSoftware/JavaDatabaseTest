@@ -1,0 +1,15 @@
+// AWT
+import java.awt.*;
+import java.awt.event.*;
+
+// SWING - GUI
+import javax.swing.*;
+
+public class FindCustomerWindow extends JFrame {
+	
+	// Constuctor
+	public FindCustomerWindow() {
+		
+	}
+	// TODO: Implement me
+}

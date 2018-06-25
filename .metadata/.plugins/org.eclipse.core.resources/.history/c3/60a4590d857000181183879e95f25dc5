@@ -1,0 +1,84 @@
+// AWT
+import java.awt.*;
+import java.awt.event.*;
+
+// SWING - GUI
+import javax.swing.*;
+
+import CustomerWindow.DoneButtonClickListener;
+
+/*
+ * FindCustomerWindow
+ * 
+ * FindCustomerWindow is a simple window which allows
+ * the user to search for a customer
+ * 
+ * (c) Dodgee Software 2018
+ * 
+ */
+public class FindCustomerWindow extends JFrame {
+	
+	// CustomerID Label
+	private JLabel customerIDLabel;
+	// CustomerID TextField
+	private JTextField customerIDTextField;
+	// Search Button
+	private JButton searchButton;
+	// Search Button
+	private JButton cancelButton;
+	
+	// Constuctor
+	public FindCustomerWindow() {
+		// Setup the Window
+		this.setSize(640, 480);
+		this.setResizable(false);
+		this.setTitle("Find Customer");
+		
+		Container contentPane = this.getContentPane();		
+		//contentPane.setLayout(new FlowLayout());
+		contentPane.setLayout(new GridLayout(4, 2));
+		
+		// CustomerID Label
+		this.customerIDLabel = new JLabel("ID");
+		this.add(this.customerIDLabel);		
+		// CustomeID TextField
+		this.customerIDTextField = new JTextField();		
+		this.add(this.customerIDTextField);
+		
+		// Cancel Button
+		this.cancelButton = new JButton("Cancel");
+		this.cancelButton.addActionListener(new CancelButtonClickListener());
+		this.add(this.cancelButton);
+		
+		// Search Button
+		this.searchButton = new JButton("Search");
+		this.searchButton.addActionListener(new SearchButtonClickListener());
+		this.add(this.searchButton);
+	}
+
+	private class CancelButtonClickListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			// Clear the CustomerID Text Field
+			FindCustomerWindow.this.customerIDTextField.setText("");
+			// Hide the Window
+			FindCustomerWindow.this.setVisible(false);
+		}
+	}
+	
+	private class SearchButtonClickListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			// Clear the Customer
+			FindCustomerWindow.this.customer = new Customer();
+			// Grab the CustomerID
+			long customerID = Long.parseLong(FindCustomerWindow.this.customerIDTextField.getText());
+			
+			// Grab the DatabaseWrapper
+			DatabaseWrapper databaseWrapper = DatabaseWrapper.getInstance();
+			
+			// Hide the Window
+			FindCustomerWindow.this.setVisible(false);
+		}
+	}
+		
+	// TODO: Implement me
+}

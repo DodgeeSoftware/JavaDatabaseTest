@@ -1,0 +1,43 @@
+****************
+* Instructions *
+****************
+
+1) This application uses MySQL version 8.0. You should download and install that.
+
+2) Using the command line Navigate to the 'C:\Program Files\MySQL\MySQL Server 8.0\bin' folder (or similar depending on your OS mine is windows) 
+
+3) Type in the line 'mysql -u root -p' a prompt should appear which asks you for the password you chose for root when you installed mysql. Type that in now and press enter. Once logged in you should be presented with a prompt mysql>
+
+4) Create the database by typing in 
+CREATE DATABASE dbtest;
+
+5) select the database by typing in 
+USE dbtest;
+
+6) type in
+CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin';
+This create a user called 'admin' with a password' admin'
+
+7) We need to grant privileges to the new user type in
+GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost' IDENTIFIED BY 'admin';
+
+8) This step is super important and allows us to administer the database and login using tools such as HeidiSQL. Type
+ALTER USER 'admin'@'localhost' IDENTIFIED WITH mysql_native_password BY 'admin';
+Without this step 1396 Error will occur.
+
+9) Type in the following code to create the database
+CREATE TABLE `customers` (
+	`CustomerID` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'UniqueID for the Customer',
+	`LastName` TEXT NULL COMMENT 'Last Name',
+	`Title` ENUM('MR','MRS','MISS') NULL DEFAULT 'MR' COMMENT 'Title, Mr, Miss, Mr, Doc etc',
+	`GivenNames` TEXT NULL COMMENT 'Names which are not the last name',
+	PRIMARY KEY (`CustomerID`)
+)
+COMMENT='This table contains customer information'
+COLLATE='utf8mb4_0900_ai_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=25;
+
+10) That should be it, if you install HeidiSQL you should be able to log in with the username admin and password admin to look at the table you made and do general admin for the database dbtest. You can then run the 'JavaDatabaseTest.jar' to use the application.
+
+11) To View the source code download the eclipse IDE and open the workpath (the directory you extracted this project into)

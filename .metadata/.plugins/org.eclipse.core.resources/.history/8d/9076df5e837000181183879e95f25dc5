@@ -1,0 +1,29 @@
+// AWT
+import java.awt.*;
+import java.awt.event.*;
+
+// SWING - GUI
+import javax.swing.*;
+
+/*
+ * FindCustomerWindow
+ * 
+ * FindCustomerWindow is a simple window which allows
+ * the user to search for a customer
+ * 
+ * (c) Dodgee Software 2018
+ * 
+ */
+public class FindCustomerWindow extends JFrame {
+	
+	// CustomerID Label
+	private JLabel customerIDLabel;
+	// CustomerID TextField
+	private JTextField customerIDTextField;
+	
+	// Constuctor
+	public FindCustomerWindow() {
+		
+	}
+	// TODO: Implement me
+}
