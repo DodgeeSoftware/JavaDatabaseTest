@@ -1,3 +1,5 @@
+# Simple Desktop Application (Java, MySQLConnector/J, Swing)
+
 This is a Simple Desktop Application which administers a MySQL Database. 
 
 This Application was written using Java, MySQLConnector/J library and Swing.
